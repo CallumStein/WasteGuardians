@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Test Your Knowledge";
+}
+
+<head>
+    <style>
+        canvas {
+            border: 1px solid rgb(255, 255, 255);
+        }
+
+        .btn-primary {
+            color: #212529;
+            background-color: #0bd784;
+            border-color: #09a666
+        }
+
+            .btn-primary:hover {
+                color: #212529;
+                background-color: #078e57;
+                border-color: #09a666
+            }
+
+            .btn-primary:focus,
+            .btn-primary.focus {
+                box-shadow: 0 0 0 .2rem rgba(91, 194, 194, 0.5)
+            }
+    </style>
+    
+</head>
+<body>
+<div class="text-center">
+    <h1 class="display-4">Where does the rubbish go?</h1>
+    <p>(Drag the waste into the appropiate bins)</p>
+</div>
+
+<!-- Renders the Canvas game and imports the game Script File-->
+<div style="text-align:center;">
+    <audio id="pickup-sound" src="~/assets/pickup.mp3"></audio>
+    <audio id="bin-sound" src="~/assets/drop.mp3"></audio>
+    <canvas id="canvas" width="800" height="400"></canvas>
+</div>
+
+<!-- Section to display total score -->
+<div class="row justify-content-center">
+    <h2 class="text-center" id="scoreDisplay"></h2>
+</div>
+
+<!-- Designate an area to show the scores of the player -->
+<div class="row justify-content-center">
+    <div class="col-4 text-center">
+        <span id="bin1-score"></span>
+    </div>
+    <div class="col-4 text-center">
+        <span id="bin2-score"></span>
+    </div>
+    <div class="col-4 text-center">
+        <span id="bin3-score"></span>
+    </div>
+</div>
+
+<div class="row justify-content-center" >
+        <div class="col-8 text-center" id="nextPage" style="margin-top: 1em; display: none;">
+        <input type="button" class="w-100 btn btn-lg btn-primary" value="Learn how to sort your rubbish properly here." onclick="location.href='@Url.Action("SortInformation", "Home")'" />
+    </div>
+</div>
+
+    <script src='~/js/game.js'></script>
+</body>
